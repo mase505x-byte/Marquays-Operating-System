@@ -1,0 +1,23 @@
+[package]
+name = "marquays-kernel"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# you will need these for bare metal Rust
+spin = "0.9"
+log = "0.4"
+
+[build-dependencies]
+built = { version = "0.7", features = ["git2"] } #generates the built.rs file. 
+
+# Tell cargo this is a bare-metal binary
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[lib]
+name = "marquays-kernel"
+crate-type = ["staticlib"]
