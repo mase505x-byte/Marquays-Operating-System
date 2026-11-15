@@ -1,0 +1,33 @@
+*- This is a comment
+'* This is a multiline comment *'
+*- The following script runs hello-world.
+
+.mfb _start:
+	impl .cncrr 1) #basic-dialect 
+	{
+		X1008 0100 0110 0010 ; Binaric ASCII automators
+		x1009 0101 0110 1100
+		x1010 0101 1101 0101
+	}
+.mfb _imply: 
+	
+	usx bin, 1(x1008 ~= x1010);
+	mov ascii bit("Hello, World!"), 'impl'
+*- The following script builds a simple number sum i/o.
+
+.mfb _start:
+	'* The concurrent impl is '2' because the hello world program was previously intialized.
+	impl .cncrr 2) #cask-enumrate
+	{
+		X4060 1011 0010 0000 ; Binaric Operator Number automators
+		x4061 0110 0011 0011 
+		x4062;	
+			x($def) x0FEc [operator]' xOFEc($$);
+		return; 0110 0110 0010
+.mfb _pool:
+	
+	usx bin 1(x4060 ~= x1010);
+	mov rdi bits ($1 [+] $1);
+	return xOFEc, 'pool'
+	
+		
