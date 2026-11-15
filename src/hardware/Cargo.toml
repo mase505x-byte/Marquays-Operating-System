@@ -1,0 +1,7 @@
+[package]
+name = "marquays-hardware"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+path = "src/hardware/lib.rs
